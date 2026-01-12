@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE STYLES ===== */
+@layer base {
+    body {
+        @apply bg-gradient-to-b from-blue-50 to-white text-slate-800 font-sans antialiased;
+    }
+
+    header {
+        background: linear-gradient(to right, #1e3a8a, #2563eb);
+        color: white;
+        @apply shadow-md;
+    }
+
+    h1,
+    h2,
+    h3 {
+        @apply font-semibold text-slate-800;
+    }
+}
+
+/* ===== COMPONENTS ===== */
+@layer components {
+    /* Tombol */
+    .btn-sky {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-sm shadow-md transition-transform transform hover:-translate-y-0.5;
+    }
+
+    .btn-green {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm shadow-md transition-transform transform hover:-translate-y-0.5;
+    }
+
+    .btn-yellow {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-sm shadow-md transition-transform transform hover:-translate-y-0.5;
+    }
+
+    .btn-gray {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg text-sm shadow-sm transition-transform transform hover:-translate-y-0.5;
+    }
+
+    .label-form {
+        @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+
+    .input-form {
+        @apply w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-amber-400 
+           focus:outline-none focus:border-amber-400 bg-white shadow-sm transition;
+    }
+
+    /* Kartu / Section */
+    .section-card {
+        @apply bg-white rounded-xl shadow-sm border border-slate-200 p-5 transition hover:shadow-md hover:border-sky-200;
+        border-left: 4px solid #3b82f6; /* Aksen biru di sisi kiri */
+    }
+
+    /* Tabel */
+    table {
+        @apply w-full text-sm border border-gray-200 rounded-lg overflow-hidden shadow-sm animate-fadeIn;
+    }
+
+    thead {
+        @apply bg-sky-100 text-sky-700;
+    }
+
+    th,
+    td {
+        @apply border border-gray-200 px-4 py-2 text-left;
+    }
+
+    tr:nth-child(even) {
+        @apply bg-slate-50;
+    }
+
+    tr:hover {
+        @apply bg-sky-50 transition-transform transform scale-[1.01];
+    }
+
+    /* Input & Select */
+    input[type="text"],
+    input[type="date"],
+    select {
+        @apply border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-sky-400 focus:outline-none transition;
+    }
+
+    /* Badge Jumlah Surat Baru */
+    .badge {
+        @apply inline-flex items-center justify-center text-xs font-semibold text-white bg-rose-500 rounded-full px-2 py-0.5;
+    }
+
+    /* Pagination */
+    .pagination {
+        @apply flex items-center gap-2 justify-center mt-4;
+    }
+
+    .pagination a {
+        @apply px-3 py-1 rounded-md border border-slate-300 hover:bg-sky-100 transition;
+    }
+
+    .pagination .active {
+        @apply bg-sky-600 text-white border-sky-600;
+    }
+
+    /* ==== ANIMASI HALUS ==== */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeInUp {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* ===============================
+       Login Page Custom Styles (CLEAN)
+    =============================== */
+
+    /* Logo animasi ringan */
+    .logo-img {
+        @apply transition-transform duration-300;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.05);
+    }
+}
