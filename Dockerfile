@@ -21,6 +21,15 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
+# Permission dulu
+RUN chmod -R 775 storage bootstrap/cache
+
+# Install PHP deps
 RUN composer install --no-dev --optimize-autoloader
 
-CMD php -S 0.0.0.0:$PORT -t public
+# Clear & cache config
+RUN php artisan config:clear || true
+RUN php artisan config:cache || true
+
+# Railway uses PORT
+CMD php -S 0.0.0.0:${PORT:-8080} -t public
